@@ -28,6 +28,7 @@ jobs:
     permissions:
       contents: read
       packages: write
+      id-token: write
       
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
@@ -51,6 +52,4 @@ jobs:
           # set to true if install-dir location requires sudo privs
           #use-sudo: # optional, default is false
                 
-      - shell: bash
-        run: |
-          COSIGN_EXPERIMENTAL=true cosign sign --yes ${{ steps.apko.outputs.digest }}
+      - run: cosign sign --yes ${{ steps.apko.outputs.digest }}
