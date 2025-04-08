@@ -19,3 +19,5 @@ accounts:
 work-dir: /home/caddy
 entrypoint:
   command: /usr/bin/caddy run --environ --watch
+archs:
+ - amd64
