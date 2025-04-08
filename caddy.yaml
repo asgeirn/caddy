@@ -1,0 +1,21 @@
+contents:
+  keyring:
+    - https://packages.wolfi.dev/os/wolfi-signing.rsa.pub
+  repositories:
+    - https://packages.wolfi.dev/os
+  packages:
+    - wolfi-base
+    - ca-certificates-bundle
+    - caddy
+accounts:
+  groups:
+    - groupname: caddy
+      gid: 10000
+  users:
+    - username: caddy
+      uid: 10000
+      shell: /bin/sh
+  run-as: caddy
+work-dir: /home/caddy
+entrypoint:
+  command: /usr/bin/caddy run --environ --watch
